@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центральная Презервативная - Карточка товара</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Центральная Презервативная</a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Каталог</a>
+                    <a href="login.html" class="nav-link">Вход</a>
+                    <a href="#" class="nav-link">Корзина</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Карточка товара -->
+        <div class="product-hero fade-in">
+            <div class="product-gallery">
+                <div>
+                    <div id="mainImage" style="height: 400px; background: linear-gradient(135deg, #fec7d7, #a786df); 
+                                               border-radius: 20px; display: flex; align-items: center; 
+                                               justify-content: center; font-size: 6rem; margin-bottom: 1rem;">
+                        🛡️
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <div class="thumbnail" onclick="changeImage('🛡️')" style="width: 80px; height: 80px; 
+                                                                           background: linear-gradient(135deg, #fec7d7, #d9d4e7); 
+                                                                           border-radius: 10px; display: flex; 
+                                                                           align-items: center; justify-content: center; 
+                                                                           font-size: 2rem; cursor: pointer;">🛡️</div>
+                        <div class="thumbnail" onclick="changeImage('💧')" style="width: 80px; height: 80px; 
+                                                                           background: linear-gradient(135deg, #d9d4e7, #a786df); 
+                                                                           border-radius: 10px; display: flex; 
+                                                                           align-items: center; justify-content: center; 
+                                                                           font-size: 2rem; cursor: pointer;">💧</div>
+                        <div class="thumbnail" onclick="changeImage('⭐')" style="width: 80px; height: 80px; 
+                                                                           background: linear-gradient(135deg, #a786df, #fec7d7); 
+                                                                           border-radius: 10px; display: flex; 
+                                                                           align-items: center; justify-content: center; 
+                                                                           font-size: 2rem; cursor: pointer;">⭐</div>
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <h1 id="productTitle">Durex Classic</h1>
+                    <div class="price" id="productPrice">299 ₽</div>
+                    
+                    <div style="margin: 2rem 0;">
+                        <h3 style="margin-bottom: 1rem; color: #0e172c;">Описание товара:</h3>
+                        <p id="productDescription" style="line-height: 1.6; color: #0e172c;">
+                            Классические презервативы с лубрикантом для надежной защиты и комфорта. 
+                            Изготовлены из высококачественного латекса, проходят строгий контроль качества. 
+                            Идеальны для ежедневного использования.
+                        </p>
+                    </div>
+
+                    <div style="margin: 2rem 0;">
+                        <h3 style="margin-bottom: 1rem; color: #0e172c;">Характеристики:</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(254, 199, 215, 0.3);">
+                                <strong>Материал:</strong> Натуральный латекс
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(254, 199, 215, 0.3);">
+                                <strong>Ширина:</strong> 52 мм
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(254, 199, 215, 0.3);">
+                                <strong>Длина:</strong> 180 мм
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(254, 199, 215, 0.3);">
+                                <strong>Толщина:</strong> 0.07 мм
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <strong>Лубрикант:</strong> Силиконовый
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <span style="font-weight: 600; margin-right: 1rem;">Количество:</span>
+                        <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                        <span class="quantity-display" id="quantity">1</span>
+                        <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    </div>
+
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn" style="flex: 1; min-width: 200px;" onclick="addToCart()">
+                            Добавить в корзину
+                        </button>
+                        <button class="btn" style="background: #a786df; flex: 1; min-width: 200px;" onclick="buyNow()">
+                            Купить сейчас
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Дополнительная информация -->
+        <section style="margin: 4rem 0;" class="fade-in">
+            <div style="background: rgba(249, 248, 252, 0.9); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                <h2 style="font-size: 2rem; font-weight: 800; color: #0e172c; margin-bottom: 2rem; text-align: center;">
+                    Отзывы покупателей
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="background: rgba(255, 255, 254, 0.8); padding: 1.5rem; border-radius: 15px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #fec7d7, #a786df); 
+                                        border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                                        margin-right: 1rem; font-weight: bold;">А</div>
+                            <div>
+                                <div style="font-weight: 600;">Алексей</div>
+                                <div style="color: #a786df; font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p style="color: #0e172c; line-height: 1.5;">Отличное качество, как всегда у Durex. Быстрая доставка в дискретной упаковке.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 254, 0.8); padding: 1.5rem; border-radius: 15px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #a786df, #d9d4e7); 
+                                        border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                                        margin-right: 1rem; font-weight: bold;">М</div>
+                            <div>
+                                <div style="font-weight: 600;">Мария</div>
+                                <div style="color: #a786df; font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p style="color: #0e172c; line-height: 1.5;">Проверенный бренд, никогда не подводил. Рекомендую для покупки.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 254, 0.8); padding: 1.5rem; border-radius: 15px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #d9d4e7, #fec7d7); 
+                                        border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                                        margin-right: 1rem; font-weight: bold;">И</div>
+                            <div>
+                                <div style="font-weight: 600;">Иван</div>
+                                <div style="color: #a786df; font-size: 0.9rem;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p style="color: #0e172c; line-height: 1.5;">Хорошее соотношение цены и качества. Буду заказывать еще.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Рекомендуемые товары -->
+        <section style="margin: 4rem 0;" class="fade-in">
+            <h2 style="font-size: 2rem; font-weight: 800; color: #0e172c; margin-bottom: 2rem; text-align: center;">
+                Вам также может понравиться
+            </h2>
+            
+            <div class="products-grid">
+                <div class="product-card" onclick="openProduct(10)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #fec7d7, #d9d4e7); border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <span style="font-size: 4rem; opacity: 0.7;">🌈</span>
+                    </div>
+                    <h3 class="product-title">Contex Rainbow</h3>
+                    <p class="product-price">379 ₽</p>
+                    <p class="product-description">Цветные презервативы для разнообразия в интимной жизни.</p>
+                </div>
+                
+                <div class="product-card" onclick="openProduct(11)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #a786df, #fec7d7); border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <span style="font-size: 4rem; opacity: 0.7;">🍒</span>
+                    </div>
+                    <h3 class="product-title">Durex Cherry</h3>
+                    <p class="product-price">349 ₽</p>
+                    <p class="product-description">Ароматизированные презервативы со вкусом вишни.</p>
+                </div>
+                
+                <div class="product-card" onclick="openProduct(12)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #d9d4e7, #a786df); border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <span style="font-size: 4rem; opacity: 0.7;">⚡</span>
+                    </div>
+                    <h3 class="product-title">Trojan Fire</h3>
+                    <p class="product-price">599 ₽</p>
+                    <p class="product-description">Презервативы с разогревающим эффектом для новых ощущений.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>Практическая работа 1</p>
+                <p>Иванов Иван</p>
+                <p>Веб-разработка</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let quantity = 1;
+
+        // Изменение изображения
+        function changeImage(emoji) {
+            document.getElementById('mainImage').innerHTML = emoji;
+        }
+
+        // Изменение количества
+        function changeQuantity(delta) {
+            quantity = Math.max(1, quantity + delta);
+            document.getElementById('quantity').textContent = quantity;
+            
+            // Анимация изменения
+            const quantityDisplay = document.getElementById('quantity');
+            quantityDisplay.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                quantityDisplay.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Добавление в корзину
+        function addToCart() {
+            alert(`Товар добавлен в корзину! Количество: ${quantity}`);
+        }
+
+        // Покупка сейчас
+        function buyNow() {
+            alert(`Переход к оформлению заказа. Количество: ${quantity}`);
+        }
+
+        // Открытие товара
+        function openProduct(id) {
+            window.location.href = `product.html?id=${id}`;
+        }
+
+        // Загрузка данных товара по ID
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id') || '1';
+            
+            // Данные товаров (в реальном приложении это будет с сервера)
+            const products = {
+                '1': { title: 'Durex Classic', price: '299 ₽', description: 'Классические презервативы с лубрикантом для надежной защиты и комфорта.', emoji: '🛡️' },
+                '2': { title: 'Contex Romance', price: '259 ₽', description: 'Презервативы с ароматом ванили для романтических встреч.', emoji: '💜' },
+                '3': { title: 'K-Y Jelly', price: '449 ₽', description: 'Водный лубрикант на силиконовой основе. Долгая смазка.', emoji: '💧' },
+                '4': { title: 'Trojan Ultra', price: '699 ₽', description: 'Премиум презервативы с улучшенной чувствительностью.', emoji: '👑' },
+                '5': { title: 'Sagami Original', price: '899 ₽', description: 'Японские презервативы из полиуретана. Максимальная тонкость.', emoji: '🌟' },
+                '6': { title: 'Durex Play', price: '399 ₽', description: 'Ароматизированный лубрикант со вкусом клубники.', emoji: '🍓' },
+                '7': { title: 'LELO Hex', price: '1299 ₽', description: 'Революционные презервативы с шестигранной структурой.', emoji: '💎' },
+                '8': { title: 'Contex Hot', price: '329 ₽', description: 'Презервативы с согревающим эффектом для новых ощущений.', emoji: '🔥' },
+                '9': { title: 'Durex Play Cool', price: '429 ₽', description: 'Охлаждающий лубрикант для ярких ощущений.', emoji: '❄️' }
+            };
+
+            const product = products[productId] || products['1'];
+            
+            document.getElementById('productTitle').textContent = product.title;
+            document.getElementById('productPrice').textContent = product.price;
+            document.getElementById('productDescription').textContent = product.description;
+            document.getElementById('mainImage').innerHTML = product.emoji;
+
+            // Анимация при загрузке
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
