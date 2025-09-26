@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НеКонтрабанда - Мемный магазин запрещенных товаров</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">НеКонтрабанда</a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Каталог</a>
+                    <a href="login.html" class="nav-link">Вход</a>
+                    <a href="#" class="nav-link">Корзина</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Геройская секция -->
+        <section style="text-align: center; padding: 4rem 0;" class="fade-in">
+            <h1 style="font-size: 3.5rem; font-weight: 800; color: #0e172c; margin-bottom: 1rem; line-height: 1.2;">
+                Добро пожаловать в<br>
+                <span style="color: #a786df;">НеКонтрабанду</span>
+            </h1>
+            <p style="font-size: 1.3rem; color: #0e172c; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+Только самые запрещенные и мемные товары со всего интернета. Всё запрещено, но доступно!
+            </p>
+            <button class="btn" style="font-size: 1.1rem; padding: 15px 30px;" onclick="scrollToProducts()">
+                Перейти к каталогу
+            </button>
+        </section>
+
+        <!-- Поиск и фильтры -->
+        <section style="margin: 3rem 0;" class="fade-in">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+                <input type="text" id="searchInput" placeholder="Поиск товаров..." 
+                       style="padding: 12px 20px; border: 2px solid rgba(254, 199, 215, 0.3); border-radius: 25px; 
+                              background: rgba(255, 255, 254, 0.8); font-size: 1rem; min-width: 300px;">
+                <select id="categoryFilter" style="padding: 12px 20px; border: 2px solid rgba(254, 199, 215, 0.3); 
+                                                   border-radius: 25px; background: rgba(255, 255, 254, 0.8); 
+                                                   font-size: 1rem;">
+                    <option value="">Все категории</option>
+                    <option value="contraband">Контрабанда</option>
+                    <option value="meme">Мемные товары</option>
+                    <option value="forbidden">Запрещенные</option>
+                </select>
+                <button class="btn" onclick="filterProducts()">Найти</button>
+            </div>
+        </section>
+
+        <!-- Каталог товаров -->
+        <section id="products" style="margin: 4rem 0;">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; color: #0e172c; margin-bottom: 3rem;">
+                Наш каталог
+            </h2>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Товар 1 -->
+                <div class="product-card fade-in" data-category="contraband" onclick="openProduct(1)">
+                    <div style="height: 200px; border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <img src="product1.png" alt="Контрабандный батончик" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                    </div>
+                    <h3 class="product-title">Запрещенный батончик "Контрабандный Snickers"</h3>
+                    <p class="product-price">666 ₽</p>
+                    <p class="product-description">Официально запрещен к продаже в 47 странах! Содержит недозволенные ингредиенты.</p>
+                </div>
+
+                <!-- Товар 2 -->
+                <div class="product-card fade-in" data-category="meme" onclick="openProduct(2)">
+                    <div style="height: 200px; border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <img src="product2.png" alt="Mega Chips" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                    </div>
+                    <h3 class="product-title">Mega Chips "Ультра Кетчуп"</h3>
+                    <p class="product-price">420 ₽</p>
+                    <p class="product-description">Чипсы с запрещенным вкусом ультра кетчуп. Вызывают привыкание с первого раза!</p>
+                </div>
+
+                <!-- Товар 3 -->
+                <div class="product-card fade-in" data-category="forbidden" onclick="openProduct(3)">
+                    <div style="height: 200px; border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <img src="product3.png" alt="Super Soda" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                    </div>
+                    <h3 class="product-title">Super Soda "Нулевой Закон"</h3>
+                    <p class="product-price">999 ₽</p>
+                    <p class="product-description">Газировка с запрещенной формулой. Даже кола ревнует!</p>
+                </div>
+
+                <!-- Товар 4 -->
+                <div class="product-card fade-in" data-category="contraband" onclick="openProduct(4)">
+                    <div style="height: 200px; border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <img src="product4.png" alt="Magic Cookies" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                    </div>
+                    <h3 class="product-title">Magic Cookies "404 Error"</h3>
+                    <p class="product-price">777 ₽</p>
+                    <p class="product-description">Печенье, которое нельзя найти в обычных магазинах. Ошибка 404 - товар не найден!</p>
+                </div>
+
+                <!-- Товар 5 -->
+                <div class="product-card fade-in" data-category="meme" onclick="openProduct(5)">
+                    <div style="height: 200px; border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <img src="product5.png" alt="Extreme Candy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                    </div>
+                    <h3 class="product-title">Extreme Candy "Батя сказал НЕТ"</h3>
+                    <p class="product-price">313 ₽</p>
+                    <p class="product-description">Конфеты, которые отец точно не разрешит. Но мы же взрослые, правда?</p>
+                </div>
+
+                <!-- Товар 6 -->
+                <div class="product-card fade-in" data-category="forbidden" onclick="openProduct(6)">
+                    <div style="height: 200px; border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <img src="product6.png" alt="Turbo Gum" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                    </div>
+                    <h3 class="product-title">Turbo Gum "Мам, это не то"</h3>
+                    <p class="product-price">228 ₽</p>
+                    <p class="product-description">Жвачка, которую мама точно спутает с чем-то другим. Но это же просто жвачка!</p>
+                </div>
+
+                <!-- Товар 7 -->
+                <div class="product-card fade-in" data-category="contraband" onclick="openProduct(7)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #ff6b6b, #4ecdc4); border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <span style="font-size: 4rem; opacity: 0.7;">🚫</span>
+                    </div>
+                    <h3 class="product-title">Запрещенный напиток "Ночной Дозор"</h3>
+                    <p class="product-price">1337 ₽</p>
+                    <p class="product-description">Энергетик, который пьют только избранные. Запрещен к продаже после 23:00!</p>
+                </div>
+
+                <!-- Товар 8 -->
+                <div class="product-card fade-in" data-category="meme" onclick="openProduct(8)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #45b7d1, #f9ca24); border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <span style="font-size: 4rem; opacity: 0.7;">💀</span>
+                    </div>
+                    <h3 class="product-title">Смертельно опасный снек "Кислый как твой эк"</h3>
+                    <p class="product-price">1488 ₽</p>
+                    <p class="product-description">Такой кислый, что даже лимон плачет. Только для настоящих героев!</p>
+                </div>
+
+                <!-- Товар 9 -->
+                <div class="product-card fade-in" data-category="forbidden" onclick="openProduct(9)">
+                    <div style="height: 200px; background: linear-gradient(135deg, #6c5ce7, #fd79a8); border-radius: 15px; 
+                                display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <span style="font-size: 4rem; opacity: 0.7;">⚡</span>
+                    </div>
+                    <h3 class="product-title">Абсолютно запрещенный продукт "404 Forbidden"</h3>
+                    <p class="product-price">6666 ₽</p>
+                    <p class="product-description">Такой запрещенный, что даже название засекречено. Доступно только VIP-клиентам!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section style="margin: 5rem 0; text-align: center;" class="fade-in">
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: #0e172c; margin-bottom: 3rem;">
+                Почему выбирают нас?
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div style="background: rgba(249, 248, 252, 0.9); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🚚</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">Тайная доставка</h3>
+                    <p>Доставляем в черных мешках, даже мама не узнает!</p>
+                </div>
+                <div style="background: rgba(249, 248, 252, 0.9); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">100% Анонимность</h3>
+                    <p>Даже ФСБ не узнает о ваших покупках (наверное)</p>
+                </div>
+                <div style="background: rgba(249, 248, 252, 0.9); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">Запрещенное качество</h3>
+                    <p>Только самые нелегальные товары с улицы!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 НеКонтрабанда - Все права запрещены // Мемный магазин запрещенных товаров</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Прокрутка к каталогу
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Открытие карточки товара
+        function openProduct(id) {
+            window.location.href = `product.html?id=${id}`;
+        }
+
+        // Фильтрация товаров
+        function filterProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const products = document.querySelectorAll('.product-card');
+
+            products.forEach(product => {
+                const title = product.querySelector('.product-title').textContent.toLowerCase();
+                const description = product.querySelector('.product-description').textContent.toLowerCase();
+                const productCategory = product.dataset.category;
+
+                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                const matchesCategory = !category || productCategory === category;
+
+                if (matchesSearch && matchesCategory) {
+                    product.style.display = 'block';
+                    product.style.opacity = '1';
+                    product.style.transform = 'translateY(0)';
+                } else {
+                    product.style.opacity = '0';
+                    product.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        if (product.style.opacity === '0') {
+                            product.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+        }
+
+        // Поиск при вводе
+        document.getElementById('searchInput').addEventListener('input', filterProducts);
+        document.getElementById('categoryFilter').addEventListener('change', filterProducts);
+
+        // Анимация при загрузке
+        window.addEventListener('load', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+
+</html>
